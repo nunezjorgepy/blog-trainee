@@ -1,9 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap');
 
+:root{
+  /* Colores */
+  --neutral--000: #fff;
+  --btn-primary-bg-color: #90BABE;
+
+  --border-main-color: #dcdcde;
+
+
+  /* Medidas */
+  --gap-main: 20px;
+}
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Science Gothic", sans-serif;
 }
 
 a{
