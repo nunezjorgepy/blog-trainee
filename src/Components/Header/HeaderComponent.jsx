@@ -1,11 +1,24 @@
+import { useState } from 'react'
 import './HeaderComponent.css'
 
 function HeaderComponent() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     /*
     TODO:
-        Funcionalidad para el botón de búsqueda de pantallas chicas
-        Funcionalidad para los botones Ingresa y Registrate
+        Llevar la variable isLoggedIng a un archivo global, ya que se usará en varios componentes;
+        Funcionalidad para el botón de búsqueda de pantallas chicas;
+        Funcionalidad para los botones Ingresa y Registrate;
      */
+
+    function setLogged(){
+        /* Modifica el estado de la variable isLoggedIn. Si es true, el usuario esta logueado y se muestran las opciones Salir y Configuración. Es es false, esta deslogueado y semuestran Ingresa y Registrate.
+        
+        IMPORTANTE: esta variable debería estar en un archivo global, ya que se usará en varias secciones (o componentes)
+        */
+        setIsLoggedIn(!isLoggedIn)
+    }
+
+    
     return (
         <header>
             <div className="h_width">
@@ -29,18 +42,41 @@ function HeaderComponent() {
                     </div>
 
                     {/* Opciones de Cuenta */}
-                    <div className="h_account_options">
-                        {/* Botones si esta deslogueado */}
-                        {/* Ingresar */}
-                        <button className="btn-primary h_account_text">Ingresa</button>
-                        <button className="btn-primary btn_account_icon">
-                            <i className="bi bi-box-arrow-in-right"></i>
-                        </button>
-                        {/* Registrarse */}
-                        <button className="btn-primary h_account_text">Registrate</button>
-                        <button className="btn-primary btn_account_icon">
-                            <i className="bi bi-door-open"></i>
-                        </button>
+                    <div className="h_account_divisor">
+                        {
+                            isLoggedIn ? 
+                            <>
+                                {/* Botones si esta logueado */}
+                                <div className="h_account_options h_account_logged_in">
+                                    {/* Ingresar */}
+                                    <button onClick={setLogged} className="btn-primary h_account_text">Salir</button>
+                                    <button onClick={setLogged} className="btn-primary btn_account_icon">
+                                        <i class="bi bi-box-arrow-left"></i>
+                                    </button>
+                                    {/* Registrarse */}
+                                    <button className="btn-primary h_account_text">Configuración</button>
+                                    <button className="btn-primary btn_account_icon">
+                                        <i class="bi bi-person-gear"></i>
+                                    </button>
+                                </div>
+                            </> :
+                            <>
+                                {/* Botones si esta deslogueado */}
+                                <div className="h_account_options h_account_logged_out">
+                                    {/* Ingresar */}
+                                    <button onClick={setLogged} className="btn-primary h_account_text">Ingresa</button>
+                                    <button onClick={setLogged} className="btn-primary btn_account_icon">
+                                        <i className="bi bi-box-arrow-in-right"></i>
+                                    </button>
+                                    {/* Registrarse */}
+                                    <button className="btn-primary h_account_text">Registrate</button>
+                                    <button className="btn-primary btn_account_icon">
+                                        <i className="bi bi-door-open"></i>
+                                    </button>
+                                </div>
+                            </>
+                        }
+                        
                     </div>
                 </div>
             </div>
