@@ -1,6 +1,11 @@
 import './HeaderComponent.css'
 
 function HeaderComponent() {
+    /*
+    TODO:
+        Funcionalidad para el botón de búsqueda de pantallas chicas
+        Funcionalidad para los botones Ingresa y Registrate
+     */
     return (
         <header>
             <div className="h_width">
