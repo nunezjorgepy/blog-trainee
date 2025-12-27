@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './HeaderComponent.css'
+import SignUpForm from '../SignUpForm/SignUpForm'
 
 function HeaderComponent() {
+    // Esta variable puede usarse en el context del usuario, que probablemente sea el más alto de todos
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     /*
     TODO:
@@ -9,6 +11,7 @@ function HeaderComponent() {
         Funcionalidad para el botón de búsqueda de pantallas chicas;
         Funcionalidad para los botones Ingresa y Registrate;
      */
+    const [showSignUpForm, setShowSignUpForm] = useState(false)
 
     function setLogged(){
         /* Modifica el estado de la variable isLoggedIn. Si es true, el usuario esta logueado y se muestran las opciones Salir y Configuración. Es es false, esta deslogueado y semuestran Ingresa y Registrate.
@@ -64,7 +67,7 @@ function HeaderComponent() {
                                 {/* Botones si esta deslogueado */}
                                 <div className="h_account_options h_account_logged_out">
                                     {/* Ingresar */}
-                                    <button onClick={setLogged} className="btn-primary h_account_text">Ingresa</button>
+                                    <button onClick={() => setShowSignUpForm(true)} className="btn-primary h_account_text">Ingresa</button>
                                     <button onClick={setLogged} className="btn-primary btn_account_icon">
                                         <i className="bi bi-box-arrow-in-right"></i>
                                     </button>
@@ -80,6 +83,8 @@ function HeaderComponent() {
                     </div>
                 </div>
             </div>
+
+            {showSignUpForm && <SignUpForm setShowSignUpForm={setShowSignUpForm} />}
         </header>
     )
 }

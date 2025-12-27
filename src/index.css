@@ -4,13 +4,23 @@
 :root{
   /* Colores */
   --neutral--000: #fff;
+  --neutral--100: #fdfdfd;
+
+  --neutral--300: #aaa;
+  --neutral--300-opacity: #aaaaaa49;
+
+
   --btn-primary-bg-color: #90BABE;
 
   --border-main-color: #dcdcde;
 
+  --required-color: #e74c3c;
 
   /* Medidas */
   --gap-main: 20px;
+  --sign-up-padding: 30px;
+
+  --border-radius-btns: 5px;
 }
 
 *{
@@ -26,4 +36,5 @@ a{
 button{
   border: none;
   cursor: pointer;
+  background-color: transparent;
 }
