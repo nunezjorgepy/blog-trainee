@@ -39,7 +39,7 @@ function SignUpForm(props) {
 
         /* Verifico si alguno de los campos ya existe en la base de datos. Si existe, no permito continuar. */
         if (usernameExists || emailExists || phoneExists) {
-            console.log('Usuario ya existente')
+            // Si alguno de los campos ya existen en la base de datos, no permite continuar
             return
         }
 
