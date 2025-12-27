@@ -4,6 +4,8 @@ import axios from "axios";
 
 const URL = `http://localhost:3000/api/`
 
+
+/* Funciones verificadoras */
 export async function getUserByUsername(username) {
     // Verifica si existe un usuario con el nombre de usuario pasado como parámetro
     try {

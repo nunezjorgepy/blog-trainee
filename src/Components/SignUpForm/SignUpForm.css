@@ -71,6 +71,11 @@
 .signUpInput:focus{
     outline: none;
 }
+.already_exist_warning{
+    font-size: 10px;
+    color: var(--required-color);
+    margin-left: 10px;
+}
 .country{
     width: 100%;
 }

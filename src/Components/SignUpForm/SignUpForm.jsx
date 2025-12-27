@@ -5,6 +5,8 @@ import { getUserByEmail, getUserByPhone, getUserByUsername } from '../../service
 /* 
     TODO:
         - Verificar más sobre los autocomplete de los input y select, que figuran como error en la consola (cuadro azul arriba a la derecha)
+        - No me convence la forma en la que verifico si el usuario ya existe. Seguramente esto mejorará al usar contextos.
+        - Verificar la información enviada (que el nombre sea sólo letras y no este vacío, etc...)
 
     Next:
         - Estados para todos los inputs y select de formulario
@@ -21,12 +23,19 @@ function SignUpForm(props) {
     const [phone, setPhone] = useState('')
     const [country, setCountry] = useState('')
 
+    const [usernameExists, setUsernameExists] = useState(false)
+    const [emailExists, setEmailExists] = useState(false)
+    const [phoneExists, setPhoneExists] = useState(false)
+
     async function sendData(e) {
         e.preventDefault()
 
         const usernameExists = await getUserByUsername(username)
+        setUsernameExists(usernameExists)
         const emailExists = await getUserByEmail(email)
+        setEmailExists(emailExists)
         const phoneExists = await getUserByPhone(phone)
+        setPhoneExists(phoneExists)
 
         /* Verifico si alguno de los campos ya existe en la base de datos. Si existe, no permito continuar. */
         if (usernameExists || emailExists || phoneExists) {
@@ -119,6 +128,8 @@ function SignUpForm(props) {
                                     value={username}
                                     onChange={(e) => {setUsername(e.target.value)}}/>
                                 </div>
+                                {usernameExists && <div className="already_exist_warning">El usuario ya existe</div>}
+                                
                             </div>
 
                             <div className="form_group">    
@@ -150,6 +161,7 @@ function SignUpForm(props) {
                                     value={email}
                                     onChange={(e) => {setEmail(e.target.value)}}/>
                                 </div>
+                                {emailExists && <div className="already_exist_warning">El email ya existe</div>}
                             </div>
 
                             <div className="form_group">
@@ -164,6 +176,7 @@ function SignUpForm(props) {
                                     value={phone}
                                     onChange={(e) => {setPhone(e.target.value)}}/>
                                 </div>
+                                {phoneExists && <div className="already_exist_warning">El teléfono ya existe</div>}
                             </div>
                         </div>
 
