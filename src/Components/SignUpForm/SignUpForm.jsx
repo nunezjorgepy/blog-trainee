@@ -1,16 +1,39 @@
+import { useState } from 'react'
 import './SignUpForm.css'
 
 /* 
     TODO:
         - Verificar más sobre los autocomplete de los input y select, que figuran como error en la consola (cuadro azul arriba a la derecha)
+
+    Next:
+        - Estados para todos los inputs y select de formulario
 */
 
 function SignUpForm(props) {
     const { setShowSignUpForm } = props
 
+    const [name, setName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [country, setCountry] = useState('')
+
     function sendData(e) {
         e.preventDefault()
-        console.log(`Sending Data...`)
+
+        const data = {
+            name,
+            lastname: lastName,
+            username,
+            email,
+            country,
+            password,
+            phone
+        }
+
+        console.log(data)
     }
 
     function closeForm(e) {
@@ -38,7 +61,13 @@ function SignUpForm(props) {
                                 <label htmlFor="completeName" className="required">Nombre</label>
                                 <div className="input_with_icon">
                                     <i className="bi bi-person-fill"></i>
-                                    <input type="text" className="signUpInput" id='completeName' placeholder='Ingresa tu nombre completo' />
+                                    <input 
+                                    type="text" 
+                                    className="signUpInput" 
+                                    id='completeName' 
+                                    placeholder='Ingresa tu nombre completo'
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)} />
                                 </div>
                             </div>
 
@@ -46,7 +75,13 @@ function SignUpForm(props) {
                                 <label htmlFor="lastName" className="required">Apellido</label>
                                 <div className="input_with_icon">
                                     <i className="bi bi-person-fill"></i>
-                                    <input type="text" className="signUpInput" id='lastName' placeholder='Ingresa tu Apellido' />
+                                    <input 
+                                    type="text" 
+                                    className="signUpInput" 
+                                    id='lastName' 
+                                    placeholder='Ingresa tu Apellido' 
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}/>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +92,13 @@ function SignUpForm(props) {
                                 <label htmlFor="username" className="required">Usuario</label>
                                 <div className="input_with_icon">
                                     <i className="bi bi-person-circle"></i>
-                                    <input type="text" className="signUpInput" id='username' placeholder='Elegí tu nombre de usuario' />
+                                    <input 
+                                    type="text" 
+                                    className="signUpInput" 
+                                    id='username' 
+                                    placeholder='Elegí tu nombre de usuario' 
+                                    value={username}
+                                    onChange={(e) => {setUsername(e.target.value)}}/>
                                 </div>
                             </div>
 
@@ -65,7 +106,13 @@ function SignUpForm(props) {
                                 <label htmlFor="password" className="required">Contraseña</label>
                                 <div className="input_with_icon">
                                     <i className="bi bi-key"></i>
-                                    <input type="password" className="signUpInput" id='password' placeholder='Elegí tu contraseña' />
+                                    <input 
+                                    type="password" 
+                                    className="signUpInput" 
+                                    id='password' 
+                                    placeholder='Elegí tu contraseña' 
+                                    value={password}
+                                    onChange={(e) => {setPassword(e.target.value)}}/>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +123,13 @@ function SignUpForm(props) {
                                 <label htmlFor="userEmail" className="required">Email</label>
                                 <div className="input_with_icon">
                                     <i className="bi bi-envelope"></i>
-                                    <input type="text" className="signUpInput" id='userEmail' placeholder='Ingresa tu correo' />
+                                    <input 
+                                    type="text" 
+                                    className="signUpInput" 
+                                    id='userEmail' 
+                                    placeholder='Ingresa tu correo' 
+                                    value={email}
+                                    onChange={(e) => {setEmail(e.target.value)}}/>
                                 </div>
                             </div>
 
@@ -84,7 +137,13 @@ function SignUpForm(props) {
                                 <label htmlFor="phone" className="required">Teléfono</label>
                                 <div className="input_with_icon">
                                     <i className="bi bi-telephone-fill"></i>
-                                    <input type="text" className="signUpInput" id='phone' placeholder='Ingresa tu teléfono' />
+                                    <input 
+                                    type="text" 
+                                    className="signUpInput" 
+                                    id='phone' 
+                                    placeholder='Ingresa tu teléfono'
+                                    value={phone}
+                                    onChange={(e) => {setPhone(e.target.value)}}/>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +154,12 @@ function SignUpForm(props) {
                                 <label htmlFor="country" className="required">País</label>
                                 <div className="input_with_icon">
                                     <i className="bi bi-globe-americas"></i>
-                                    <select name="country" id="country" className='signUpInput country' defaultValue={""}>
+                                    <select 
+                                    name="country" 
+                                    id="country" 
+                                    className='signUpInput country' 
+                                    value={country}
+                                    onChange={(e) => {setCountry(e.target.value)}}>
                                         <option value="" disabled>Selecciona tu país</option>
                                         <option value="DE">Alemania</option>
                                         <option value="AR">Argentina</option>
