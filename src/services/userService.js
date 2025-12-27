@@ -55,3 +55,15 @@ export async function getUserByPhone(phone) {
     
 }
 
+/* Post data */
+export async function postNewUser(data) {
+    // Nuevo usuario
+    try {
+        const newUser = await axios.post(`${URL}users/`, data)
+        return newUser.data
+    } catch (error) {
+        console.log(error.message)
+        throw error
+    }
+}
+

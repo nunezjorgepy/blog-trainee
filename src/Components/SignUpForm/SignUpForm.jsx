@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './SignUpForm.css'
-import { getUserByEmail, getUserByPhone, getUserByUsername } from '../../services/userService'
+import { getUserByEmail, getUserByPhone, getUserByUsername, postNewUser } from '../../services/userService'
 
 /* 
     TODO:
@@ -43,6 +43,8 @@ function SignUpForm(props) {
             return
         }
 
+        // La data a enviar
+        // TODO: verificar que la información sea correcta antes de ser enviada.
         const data = {
             name,
             lastname: lastName,
@@ -53,7 +55,8 @@ function SignUpForm(props) {
             phone
         }
 
-        console.log(data)
+        // Si la data es correcta, ingresa al nuevo usuario en la base de datos
+        await postNewUser(data)
     }
 
     function closeForm(e) {
