@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './SignUpForm.css'
-import { getUserByEmail, getUserByPhone, getUserByUsername, postNewUser } from '../../services/userService'
+import { getUserByEmail, getUserByPhone, getUserByUsername, postNewUser } from '../../services/userService.js'
 
 /* 
     TODO:
