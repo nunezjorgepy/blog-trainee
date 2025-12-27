@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './SignUpForm.css'
+import { getUserByEmail, getUserByPhone, getUserByUsername } from '../../services/userService'
 
 /* 
     TODO:
@@ -20,8 +21,18 @@ function SignUpForm(props) {
     const [phone, setPhone] = useState('')
     const [country, setCountry] = useState('')
 
-    function sendData(e) {
+    async function sendData(e) {
         e.preventDefault()
+
+        const usernameExists = await getUserByUsername(username)
+        const emailExists = await getUserByEmail(email)
+        const phoneExists = await getUserByPhone(phone)
+
+        /* Verifico si alguno de los campos ya existe en la base de datos. Si existe, no permito continuar. */
+        if (usernameExists || emailExists || phoneExists) {
+            console.log('Usuario ya existente')
+            return
+        }
 
         const data = {
             name,
@@ -39,6 +50,14 @@ function SignUpForm(props) {
     function closeForm(e) {
         e.preventDefault()
         setShowSignUpForm(false)
+
+        setName('')
+        setLastName('')
+        setUsername('')
+        setPassword('')
+        setEmail('')
+        setPhone('')
+        setCountry('')
     }
 
     return (
@@ -124,7 +143,7 @@ function SignUpForm(props) {
                                 <div className="input_with_icon">
                                     <i className="bi bi-envelope"></i>
                                     <input 
-                                    type="text" 
+                                    type="email" 
                                     className="signUpInput" 
                                     id='userEmail' 
                                     placeholder='Ingresa tu correo' 
