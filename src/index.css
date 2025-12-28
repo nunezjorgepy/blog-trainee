@@ -9,6 +9,8 @@
   --neutral--300: #aaa;
   --neutral--300-opacity: #aaaaaa49;
 
+  --neutral--900: #111;
+
 
   --btn-primary-bg-color: #90BABE;
 
@@ -28,10 +30,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Science Gothic", sans-serif;
+  color: var(--neutral--900);
 }
 
 a{
   text-decoration: none;
+  color: var(--neutral--900);
 }
 button{
   border: none;

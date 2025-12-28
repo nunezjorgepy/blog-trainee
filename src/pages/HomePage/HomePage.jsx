@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import HeaderComponent from "../Components/Header/HeaderComponent"
+import HeaderComponent from "../../Components/Header/HEaderComponent"
 
 
 function HomePage() {
@@ -7,6 +7,7 @@ function HomePage() {
         <div>
             <HeaderComponent />
             <Link to={'/user'}>User Page</Link>
+            <Link to={'/config'}>Configuración</Link>
         </div>
     )
 }
