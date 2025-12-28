@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './SignUpForm.css'
 import { getUserByEmail, getUserByPhone, getUserByUsername, postNewUser } from '../../services/userService.js'
+import { UserContext } from '../../Context/userContext.jsx'
 
 /* 
     TODO:
@@ -15,13 +16,22 @@ import { getUserByEmail, getUserByPhone, getUserByUsername, postNewUser } from '
 function SignUpForm(props) {
     const { setShowSignUpForm } = props
 
-    const [name, setName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
-    const [country, setCountry] = useState('')
+    const {
+        name,
+        setName,
+        lastName,
+        setLastName,
+        username,
+        setUsername,
+        password,
+        setPassword,
+        email,
+        setEmail,
+        phone,
+        setPhone,
+        country,
+        setCountry
+    } = useContext(UserContext)
 
     const [usernameExists, setUsernameExists] = useState(false)
     const [emailExists, setEmailExists] = useState(false)
