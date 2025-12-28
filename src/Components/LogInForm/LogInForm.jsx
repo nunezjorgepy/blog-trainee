@@ -1,14 +1,28 @@
 import { useContext } from 'react'
 import { UserContext } from '../../Context/userContext'
+import { useNavigate } from 'react-router'
 
 function LogInForm(props) {
     const { setShowLogInForm } = props
-    const { name, setName, password, setPassword} = useContext(UserContext)
+    const { 
+        username, 
+        setUsername, 
+        password, 
+        setPassword, 
+        checkPassword, 
+        setIsLoggedIn
+    } = useContext(UserContext)
+    const navigate = useNavigate()
 
-    function handleLoginSubmit(e) {
+    async function handleLoginSubmit(e) {
         e.preventDefault()
-        console.log(name)
-        console.log(password)
+        const passVerify = await checkPassword()
+
+        if (passVerify) {
+            navigate('/')
+            setIsLoggedIn(true)
+            cancelSumbit(e)
+        }
     }
 
     function cancelSumbit(e) {
@@ -16,7 +30,7 @@ function LogInForm(props) {
         setShowLogInForm(false)
 
         /* Volviendo a los valores originales */
-        setName('')
+        setUsername('')
         setPassword('')
     }
     return (
@@ -34,16 +48,16 @@ function LogInForm(props) {
                     <div className="form_row">
                         {/* Usuario / Email */}
                         <div className="form_group">
-                            <label htmlFor="login_username" className="required">Ususario o Email</label>
+                            <label htmlFor="login_username" className="required">Ususario</label>
                             <div className="input_with_icon">
                                 <i className="bi bi-person-fill"></i>
                                 <input 
                                     type="text" 
                                     className="form_input" 
                                     id="login_username" 
-                                    placeholder='Ingresa tu usuario o email'
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}/>
+                                    placeholder='Ingresa tu usuario'
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}/>
                             </div>
                         </div>
 
@@ -53,7 +67,7 @@ function LogInForm(props) {
                             <div className="input_with_icon">
                                     <i className="bi bi-key"></i>
                                 <input 
-                                    type="text" 
+                                    type="password" 
                                     className="form_input" 
                                     id="login_password" 
                                     placeholder='Ingresa tu contraseña'

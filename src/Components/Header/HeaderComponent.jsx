@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './HeaderComponent.css'
 import SignUpForm from '../SignUpForm/SignUpForm'
 import LogInForm from '../LogInForm/LogInForm'
+import { UserContext } from '../../Context/userContext'
 
 function HeaderComponent() {
     // Esta variable puede usarse en el context del usuario, que probablemente sea el más alto de todos
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const { isLoggedIn, setIsLoggedIn } =useContext(UserContext)
     /*
     TODO:
         Llevar la variable isLoggedIng a un archivo global, ya que se usará en varios componentes;
@@ -14,7 +15,6 @@ function HeaderComponent() {
      */
     const [showSignUpForm, setShowSignUpForm] = useState(false)
     const [showLogInForm, setShowLogInForm] = useState(false)
-
     
     return (
         <header>
@@ -46,14 +46,14 @@ function HeaderComponent() {
                                 {/* Botones si esta logueado */}
                                 <div className="h_account_options h_account_logged_in">
                                     {/* Ingresar */}
-                                    <button onClick={setLogged} className="btn-primary h_account_text">Salir</button>
-                                    <button onClick={setLogged} className="btn-primary btn_account_icon">
-                                        <i class="bi bi-box-arrow-left"></i>
+                                    <button onClick={() => setIsLoggedIn(false)} className="btn-primary h_account_text">Salir</button>
+                                    <button onClick={() => setIsLoggedIn(false)} className="btn-primary btn_account_icon">
+                                        <i className="bi bi-box-arrow-left"></i>
                                     </button>
                                     {/* Registrarse */}
                                     <button className="btn-primary h_account_text">Configuración</button>
                                     <button className="btn-primary btn_account_icon">
-                                        <i class="bi bi-person-gear"></i>
+                                        <i className="bi bi-person-gear"></i>
                                     </button>
                                 </div>
                             </> :
@@ -79,7 +79,7 @@ function HeaderComponent() {
             </div>
 
             {showSignUpForm && <SignUpForm setShowSignUpForm={setShowSignUpForm} />}
-            {showLogInForm && <LogInForm setShowLogInForm={setShowLogInForm}/>}
+            {showLogInForm && <LogInForm setShowLogInForm={setShowLogInForm} setIsLoggedIn={setIsLoggedIn}/>}
         </header>
     )
 }

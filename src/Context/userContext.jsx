@@ -1,8 +1,10 @@
 import { createContext, useState } from "react";
+import { getUserByUsername } from "../services/userService";
 
 export const UserContext = createContext()
 
 const UserContextProvider = (props) => {
+    /* Estados para el nuevo contacto */
     const [name, setName] = useState('')
     const [lastName, setLastName] = useState('')
     const [username, setUsername] = useState('')
@@ -15,6 +17,23 @@ const UserContextProvider = (props) => {
     const [usernameExists, setUsernameExists] = useState(false)
     const [emailExists, setEmailExists] = useState(false)
     const [phoneExists, setPhoneExists] = useState(false)
+    // Este estado verifica si el usuario ingreso correctamente sus credenciales. En un app real, esto tiene que ser mucho más seguro, pero la parte de seguridad todavía no la vi bien, asique por ahora lo hago así.
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+    async function checkPassword() {
+        /* 
+        Verifica si el password ingresado coincide con el de la base de datos
+        */
+        // Busco al contacto
+        const findUser = await getUserByUsername(username)
+        // Si no encuentar al usuario o si no coincide el password, no permite ingresar
+        if (!findUser || password !== findUser.data[0].password) {
+            console.log('Wrong credentials')
+            return false
+        }
+        // Si todo es correcto, ingresa a la página
+        return true
+    }
 
 
     const providerValues = {
@@ -38,6 +57,9 @@ const UserContextProvider = (props) => {
         setEmailExists,
         phoneExists,
         setPhoneExists,
+        checkPassword,
+        isLoggedIn,
+        setIsLoggedIn
     }
     
     return (
