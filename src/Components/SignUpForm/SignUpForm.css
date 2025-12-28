@@ -37,6 +37,9 @@ TODO:
     gap: 20px;
     font-size: 28px;
 }
+.form_header_title i {
+    color: var(--neutral--100);
+}
 .form_header_span{
     font-size: 14px;
 }
