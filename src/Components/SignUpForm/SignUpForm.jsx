@@ -30,22 +30,24 @@ function SignUpForm(props) {
         phone,
         setPhone,
         country,
-        setCountry
+        setCountry,
+        usernameExists,
+        setUsernameExists,
+        emailExists,
+        setEmailExists,
+        phoneExists,
+        setPhoneExists,
     } = useContext(UserContext)
-
-    const [usernameExists, setUsernameExists] = useState(false)
-    const [emailExists, setEmailExists] = useState(false)
-    const [phoneExists, setPhoneExists] = useState(false)
 
     async function sendData(e) {
         e.preventDefault()
 
-        const usernameExists = await getUserByUsername(username)
-        setUsernameExists(usernameExists)
-        const emailExists = await getUserByEmail(email)
-        setEmailExists(emailExists)
-        const phoneExists = await getUserByPhone(phone)
-        setPhoneExists(phoneExists)
+        const checkUsername = await getUserByUsername(username)
+        setUsernameExists(checkUsername)
+        const checkEmail = await getUserByEmail(email)
+        setEmailExists(checkEmail)
+        const checkPhone = await getUserByPhone(phone)
+        setPhoneExists(checkPhone)
 
         /* Verifico si alguno de los campos ya existe en la base de datos. Si existe, no permito continuar. */
         if (usernameExists || emailExists || phoneExists) {

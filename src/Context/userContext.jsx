@@ -11,6 +11,11 @@ const UserContextProvider = (props) => {
     const [phone, setPhone] = useState('')
     const [country, setCountry] = useState('')
 
+    /* Verificaciones */
+    const [usernameExists, setUsernameExists] = useState(false)
+    const [emailExists, setEmailExists] = useState(false)
+    const [phoneExists, setPhoneExists] = useState(false)
+
 
     const providerValues = {
         name,
@@ -26,7 +31,13 @@ const UserContextProvider = (props) => {
         phone,
         setPhone,
         country,
-        setCountry
+        setCountry,
+        usernameExists,
+        setUsernameExists,
+        emailExists,
+        setEmailExists,
+        phoneExists,
+        setPhoneExists,
     }
     
     return (
