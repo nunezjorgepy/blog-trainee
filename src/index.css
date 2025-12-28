@@ -38,3 +38,6 @@ button{
   cursor: pointer;
   background-color: transparent;
 }
+i{
+  color: var(--btn-primary-bg-color);
+}

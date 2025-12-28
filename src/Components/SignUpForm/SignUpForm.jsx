@@ -87,7 +87,7 @@ function SignUpForm(props) {
     return (
         <>
             {/* Fondo semi-transparente, donde se puede clickear par cerrar el formulario */}
-            <div className="signup_form_flex">
+            <div className="form_flex">
                 <div className='form_container'>
                     <div className="form_header">
                         <h2 className="form_header_title">
@@ -106,7 +106,7 @@ function SignUpForm(props) {
                                     <i className="bi bi-person-fill"></i>
                                     <input 
                                     type="text" 
-                                    className="signUpInput" 
+                                    className="form_input" 
                                     id='completeName' 
                                     placeholder='Ingresa tu nombre completo'
                                     value={name}
@@ -120,7 +120,7 @@ function SignUpForm(props) {
                                     <i className="bi bi-person-fill"></i>
                                     <input 
                                     type="text" 
-                                    className="signUpInput" 
+                                    className="form_input" 
                                     id='lastName' 
                                     placeholder='Ingresa tu Apellido' 
                                     value={lastName}
@@ -137,7 +137,7 @@ function SignUpForm(props) {
                                     <i className="bi bi-person-circle"></i>
                                     <input 
                                     type="text" 
-                                    className="signUpInput" 
+                                    className="form_input" 
                                     id='username' 
                                     placeholder='Elegí tu nombre de usuario' 
                                     value={username}
@@ -153,11 +153,14 @@ function SignUpForm(props) {
                                     <i className="bi bi-key"></i>
                                     <input 
                                     type="password" 
-                                    className="signUpInput" 
+                                    className="form_input" 
                                     id='password' 
                                     placeholder='Elegí tu contraseña' 
                                     value={password}
                                     onChange={(e) => {setPassword(e.target.value)}}/>
+                                    <button className="watch_password">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +173,7 @@ function SignUpForm(props) {
                                     <i className="bi bi-envelope"></i>
                                     <input 
                                     type="email" 
-                                    className="signUpInput" 
+                                    className="form_input" 
                                     id='userEmail' 
                                     placeholder='Ingresa tu correo' 
                                     value={email}
@@ -185,7 +188,7 @@ function SignUpForm(props) {
                                     <i className="bi bi-telephone-fill"></i>
                                     <input 
                                     type="text" 
-                                    className="signUpInput" 
+                                    className="form_input" 
                                     id='phone' 
                                     placeholder='Ingresa tu teléfono'
                                     value={phone}
@@ -204,7 +207,7 @@ function SignUpForm(props) {
                                     <select 
                                     name="country" 
                                     id="country" 
-                                    className='signUpInput country' 
+                                    className='form_input country' 
                                     value={country}
                                     onChange={(e) => {setCountry(e.target.value)}}>
                                         <option value="" disabled>Selecciona tu país</option>
@@ -234,11 +237,11 @@ function SignUpForm(props) {
 
                         {/* Fifth Row - Botones Enviar y Cancelar */}
                         <div className="form_row last_row">
-                            <button onClick={(e) => sendData(e)} type='submit' className="submit_btn send_info_btn">
+                            <button onClick={(e) => sendData(e)} type='submit' className="primary_btn send_info_btn">
                                 <i className="bi bi-person-plus"></i>
                                 Enviar
                             </button>
-                            <button onClick={(e) => closeForm(e)} className="submit_btn cancel_form_btn">
+                            <button onClick={(e) => closeForm(e)} className="primary_btn cancel_form_btn">
                                 <i className="bi bi-x-circle"></i>
                                 Cancelar
                             </button>

@@ -1,6 +1,13 @@
-.signup_form_flex{
+/* Estos estilos sirven también para el formulario de Log In. Capaz más adelante haga un archivo en conjunto */
+/* 
+TODO:
+    - Armar un único archivo o dejar todos estos estilos en el archivo global
+*/
+
+.form_flex{
     display: flex;
     justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -65,10 +72,11 @@
     border-radius: var(--border-radius-btns);
     color: var(--btn-primary-bg-color);
 }
-.signUpInput{
+.form_input{
+    flex: 1;
     border: none;
 }
-.signUpInput:focus{
+.form_input:focus{
     outline: none;
 }
 .already_exist_warning{
@@ -80,7 +88,7 @@
     width: 100%;
 }
 /* Botones */
-.submit_btn{
+.primary_btn{
     display: flex;
     justify-content: center;
     gap: 8px;

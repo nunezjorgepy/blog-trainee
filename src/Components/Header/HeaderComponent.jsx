@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './HeaderComponent.css'
 import SignUpForm from '../SignUpForm/SignUpForm'
+import LogInForm from '../LogInForm/LogInForm'
 
 function HeaderComponent() {
     // Esta variable puede usarse en el context del usuario, que probablemente sea el más alto de todos
@@ -12,6 +13,7 @@ function HeaderComponent() {
         Funcionalidad para los botones Ingresa y Registrate;
      */
     const [showSignUpForm, setShowSignUpForm] = useState(false)
+    const [showLogInForm, setShowLogInForm] = useState(false)
 
     
     return (
@@ -59,8 +61,8 @@ function HeaderComponent() {
                                 {/* Botones si esta deslogueado */}
                                 <div className="h_account_options h_account_logged_out">
                                     {/* Ingresar */}
-                                    <button className="btn-primary h_account_text">Ingresa</button>
-                                    <button className="btn-primary btn_account_icon">
+                                    <button onClick={() => {setShowLogInForm(true)}} className="btn-primary h_account_text">Ingresa</button>
+                                    <button onClick={() => {setShowLogInForm(true)}} className="btn-primary btn_account_icon">
                                         <i className="bi bi-box-arrow-in-right"></i>
                                     </button>
                                     {/* Registrarse */}
@@ -77,6 +79,7 @@ function HeaderComponent() {
             </div>
 
             {showSignUpForm && <SignUpForm setShowSignUpForm={setShowSignUpForm} />}
+            {showLogInForm && <LogInForm setShowLogInForm={setShowLogInForm}/>}
         </header>
     )
 }
