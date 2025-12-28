@@ -159,7 +159,7 @@ function SignUpForm(props) {
                                     value={password}
                                     onChange={(e) => {setPassword(e.target.value)}}/>
                                     <button className="watch_password">
-                                        <i class="bi bi-eye-fill"></i>
+                                        <i className="bi bi-eye-fill"></i>
                                     </button>
                                 </div>
                             </div>

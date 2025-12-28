@@ -1,11 +1,23 @@
-import React from 'react'
+import { useContext } from 'react'
+import { UserContext } from '../../Context/userContext'
 
 function LogInForm(props) {
     const { setShowLogInForm } = props
+    const { name, setName, password, setPassword} = useContext(UserContext)
+
+    function handleLoginSubmit(e) {
+        e.preventDefault()
+        console.log(name)
+        console.log(password)
+    }
 
     function cancelSumbit(e) {
         e.preventDefault()
         setShowLogInForm(false)
+
+        /* Volviendo a los valores originales */
+        setName('')
+        setPassword('')
     }
     return (
         <div className="form_flex">
@@ -29,7 +41,9 @@ function LogInForm(props) {
                                     type="text" 
                                     className="form_input" 
                                     id="login_username" 
-                                    placeholder='Ingresa tu usuario o email'/>
+                                    placeholder='Ingresa tu usuario o email'
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}/>
                             </div>
                         </div>
 
@@ -42,9 +56,11 @@ function LogInForm(props) {
                                     type="text" 
                                     className="form_input" 
                                     id="login_password" 
-                                    placeholder='Ingresa tu contraseña'/>
+                                    placeholder='Ingresa tu contraseña'
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}/>
                                     <button className="watch_password">
-                                        <i class="bi bi-eye-fill"></i>
+                                        <i className="bi bi-eye-fill"></i>
                                     </button>
                             </div>
                         </div>
@@ -53,7 +69,7 @@ function LogInForm(props) {
 
                     {/* Botones */}
                     <div className="form_row last_row">
-                        <button className="primary_btn">
+                        <button onClick={(e) => {handleLoginSubmit(e)}} className="primary_btn">
                             <i className="bi bi-box-arrow-in-right"></i>
                             Ingresar
                         </button>
