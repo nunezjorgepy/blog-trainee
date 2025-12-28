@@ -1,9 +1,10 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { UserContext } from '../../Context/userContext'
 import { useNavigate } from 'react-router'
 
 function LogInForm(props) {
     const { setShowLogInForm } = props
+    const [areWrongCredentials, setAreWrongCredentials] = useState(false)
     const { 
         username, 
         setUsername, 
@@ -16,7 +17,14 @@ function LogInForm(props) {
 
     async function handleLoginSubmit(e) {
         e.preventDefault()
+        // Por defecto, no muestro el mensaje de advertencia.
+        setAreWrongCredentials(false)
         const passVerify = await checkPassword()
+
+        if (!passVerify) {
+            setAreWrongCredentials(true)
+            return
+        }
 
         if (passVerify) {
             navigate('/')
@@ -92,6 +100,8 @@ function LogInForm(props) {
                             Cancelar
                         </button>
                     </div>
+
+                    {areWrongCredentials && <div className="form_warning margin_auto">Usuario o contraseña incorrecta</div>}
                 </form>
             </div>
         </div>

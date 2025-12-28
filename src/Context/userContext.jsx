@@ -28,7 +28,6 @@ const UserContextProvider = (props) => {
         const findUser = await getUserByUsername(username)
         // Si no encuentar al usuario o si no coincide el password, no permite ingresar
         if (!findUser || password !== findUser.data[0].password) {
-            console.log('Wrong credentials')
             return false
         }
         // Si todo es correcto, ingresa a la página

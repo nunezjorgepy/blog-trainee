@@ -143,7 +143,7 @@ function SignUpForm(props) {
                                     value={username}
                                     onChange={(e) => {setUsername(e.target.value)}}/>
                                 </div>
-                                {usernameExists && <div className="already_exist_warning">El usuario ya existe</div>}
+                                {usernameExists && <div className="form_warning">El usuario ya existe</div>}
                                 
                             </div>
 
@@ -179,7 +179,7 @@ function SignUpForm(props) {
                                     value={email}
                                     onChange={(e) => {setEmail(e.target.value)}}/>
                                 </div>
-                                {emailExists && <div className="already_exist_warning">El email ya existe</div>}
+                                {emailExists && <div className="form_warning">El email ya existe</div>}
                             </div>
 
                             <div className="form_group">
@@ -194,7 +194,7 @@ function SignUpForm(props) {
                                     value={phone}
                                     onChange={(e) => {setPhone(e.target.value)}}/>
                                 </div>
-                                {phoneExists && <div className="already_exist_warning">El teléfono ya existe</div>}
+                                {phoneExists && <div className="form_warning">El teléfono ya existe</div>}
                             </div>
                         </div>
 

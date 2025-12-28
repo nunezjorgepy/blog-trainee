@@ -82,10 +82,13 @@ TODO:
 .form_input:focus{
     outline: none;
 }
-.already_exist_warning{
+.form_warning{
     font-size: 10px;
     color: var(--required-color);
     margin-left: 10px;
+}
+.margin_auto{
+    margin: auto;
 }
 .country{
     width: 100%;
