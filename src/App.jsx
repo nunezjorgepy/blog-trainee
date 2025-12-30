@@ -14,7 +14,7 @@ function App() {
       <UserContextProvider>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/user' element={<UserPage />}/>
+          <Route path='/user/:username' element={<UserPage />}/>
           <Route path='/article' element={<ArticlePage />} />
           <Route path='/createArticle' element={<CreateArticlePage />} />
           <Route path='/config' element={<ConfigPage />} />

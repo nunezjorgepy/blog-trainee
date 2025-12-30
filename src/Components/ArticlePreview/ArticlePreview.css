@@ -23,10 +23,10 @@
     display: flex;
     justify-content: space-between;
     padding: var(--prev-left-padding) var(--prev-side-padding);
-    font-weight: 600;
     font-size: .7rem;
 }
-.prev_article_date, .prev_username{
+.prev_username{
+    font-weight: 900;
 }
 
 @media screen and (max-width: 420px) {

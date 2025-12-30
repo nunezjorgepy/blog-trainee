@@ -16,7 +16,7 @@ function ArticlePreview() {
                 </div>
             </Link>
             <div className="prev_article_info">
-                <Link to={'/'} className="prev_username">
+                <Link to={'/user/jorgenunez'} className="prev_username">
                     jorgenunez
                 </Link>
                 <div className="prev_article_date">
