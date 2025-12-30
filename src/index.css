@@ -32,6 +32,11 @@
   font-family: "Science Gothic", sans-serif;
   color: var(--neutral--900);
 }
+main{
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
 
 a{
   text-decoration: none;
@@ -43,5 +48,42 @@ button{
   background-color: transparent;
 }
 i{
-  color: var(--btn-primary-bg-color);
+  color: var(--neutral--100);
+}
+
+
+.whole_page_flex{
+  display: flex;
+  flex-direction: column;
+}
+.homepage_main{
+  display: grid;
+}
+.section{
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--border-main-color);
+}
+.articles_container{
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  gap: 20px;
+}
+
+
+@media screen and (max-width: 1100px) {
+  .articles_container{
+    grid-template-columns: repeat(3, 250px);
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .articles_container{
+    grid-template-columns: repeat(2, 250px);
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .articles_container{
+    grid-template-columns: repeat(1, 250px);
+  }
 }

@@ -1,0 +1,29 @@
+:root{
+    --prev-side-padding: 8px;
+    --prev-left-padding: 5px;
+}
+
+.preview_conainer{
+    border: 2px solid var(--btn-primary-bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.preview_title{
+    background-color: var(--btn-primary-bg-color);
+    padding: var(--prev-left-padding) var(--prev-side-padding);
+    color: var(--neutral--100);
+}
+.preview_paragraphs{
+    font-size: 12px;
+    border-bottom: 2px solid var(--btn-primary-bg-color);
+    padding: var(--prev-left-padding) var(--prev-side-padding);
+}
+.prev_article_info{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--prev-left-padding) var(--prev-side-padding);
+    font-weight: 600;
+}
+.prev_article_date, .prev_username{
+    font-size: .7rem;
+}

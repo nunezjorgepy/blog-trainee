@@ -1,0 +1,6 @@
+.last_articles_title{
+    margin: 15px 0 15px;
+    text-align: center;
+    color: var(--neutral--900);
+    font-size: 2rem;
+}

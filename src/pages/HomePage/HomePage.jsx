@@ -1,13 +1,50 @@
-import { Link } from "react-router"
+import './HomePage.css'
 import HeaderComponent from "../../Components/Header/HEaderComponent"
+import ArticlePreview from "../../Components/ArticlePreview/ArticlePreview"
 
 
 function HomePage() {
     return (
-        <div>
+        <div className="whole_page_flex">
             <HeaderComponent />
-            <Link to={'/user'}>User Page</Link>
-            <Link to={'/config'}>Configuración</Link>
+            <main className="main homepage_main">
+                <section className="last_articles section">
+                    <h2 className="last_articles_title">
+                        Últimos artículos
+                    </h2>
+                    <div className="articles_container">
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                    </div>
+                </section>
+
+                <section className='most_voted section last_section'>
+                    <h2 className="last_articles_title">
+                        Mejor Votados
+                    </h2>
+                    <div className="articles_container">
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                        <ArticlePreview />
+                    </div>
+                </section>
+
+            </main>
         </div>
     )
 }
