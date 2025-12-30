@@ -17,12 +17,12 @@ function HomePage() {
                         <ArticlePreview />
                         <ArticlePreview />
                         <ArticlePreview />
+                        <ArticlePreview />{/* 
                         <ArticlePreview />
                         <ArticlePreview />
                         <ArticlePreview />
                         <ArticlePreview />
-                        <ArticlePreview />
-                        <ArticlePreview />
+                        <ArticlePreview /> */}
                     </div>
                 </section>
 

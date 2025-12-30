@@ -4,3 +4,10 @@
     color: var(--neutral--900);
     font-size: 2rem;
 }
+
+
+@media screen and (max-width: 420px) {
+    .last_articles_title{
+        font-size: 1.4rem;
+    }
+}

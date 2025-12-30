@@ -7,6 +7,7 @@
     border: 2px solid var(--btn-primary-bg-color);
     border-radius: 10px;
     overflow: hidden;
+    width: 220px;
 }
 .preview_title{
     background-color: var(--btn-primary-bg-color);
@@ -23,7 +24,20 @@
     justify-content: space-between;
     padding: var(--prev-left-padding) var(--prev-side-padding);
     font-weight: 600;
+    font-size: .7rem;
 }
 .prev_article_date, .prev_username{
-    font-size: .7rem;
+}
+
+@media screen and (max-width: 420px) {
+    .preview_title{
+        font-size: 17px;
+    }
+    .preview_paragraphs{
+        display: none;
+    }
+    .prev_article_info{
+        font-size: .6rem;
+        font-weight: 400;
+    }
 }

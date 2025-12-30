@@ -23,6 +23,8 @@
   --sign-up-padding: 30px;
 
   --border-radius-btns: 5px;
+
+  --max-width: 1170px;
 }
 
 *{
@@ -58,19 +60,21 @@ i{
 }
 .homepage_main{
   display: grid;
+  margin: auto;
+  width: min(var(--max-width), 100%);
 }
 .section{
   padding-bottom: 50px;
   border-bottom: 1px solid var(--border-main-color);
 }
 .articles_container{
-  display: grid;
-  grid-template-columns: repeat(4, 250px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
-
-@media screen and (max-width: 1100px) {
+/* @media screen and (max-width: 1100px) {
   .articles_container{
     grid-template-columns: repeat(3, 250px);
   }
@@ -86,4 +90,4 @@ i{
   .articles_container{
     grid-template-columns: repeat(1, 250px);
   }
-}
+} */

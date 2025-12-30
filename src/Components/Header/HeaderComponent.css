@@ -8,7 +8,7 @@ header{
 .h_width{
     display: flex;
     justify-content: center;
-    width: min(1170px, 100%);
+    width: min(var(--max-width), 100%);
     padding: 20px 20px;
 }
 

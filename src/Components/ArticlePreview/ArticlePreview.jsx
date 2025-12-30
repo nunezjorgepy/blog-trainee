@@ -10,9 +10,9 @@ function ArticlePreview() {
                     Título del artículo
                 </h3>
                 <div className="preview_paragraphs">
-                    <p className="preview_p">Estos son los primeros párrafos del artículo</p>
-                    <p className="preview_p">Solamente se mostrarán unas pocas palabras</p>
-                    <p className="preview_p">Como para empezar a ver de qué se trata</p>
+                    <p className="preview_p">Estos son los primeros párrafos del artículo.</p>
+                    <p className="preview_p">Solamente se mostrarán unas pocas palabras.</p>
+                    <p className="preview_p">Como para empezar a ver de qué se trata.</p>
                 </div>
             </Link>
             <div className="prev_article_info">
