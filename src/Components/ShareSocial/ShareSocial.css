@@ -3,7 +3,7 @@
     justify-content: center;
 }
 .article_social_width {
-    width: var(--max-width);
+    width: min(var(--max-width), 100%);
     padding: var(--padding-0-3p-10px);
 }
 .article_social_media{

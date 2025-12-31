@@ -4,6 +4,7 @@ import ArticlePreview from "../../Components/ArticlePreview/ArticlePreview"
 
 
 function HomePage() {
+    document.title = 'Home Page'
     return (
         <div className="whole_page_flex">
             <HeaderComponent />
