@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 function Article() {
     return (
         <section className="article_section section">
-            <div className="article_container">
+            <div className="article_container bottom_border_small">
                 {/* Título del artículo */}
                 <h1 className="article_title">
                     Título del artículo

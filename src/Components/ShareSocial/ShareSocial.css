@@ -1,0 +1,17 @@
+.section_article_social_media{
+    display: flex;
+    justify-content: center;
+}
+.article_social_width {
+    width: var(--max-width);
+    padding: var(--padding-0-3p-10px);
+}
+.article_social_media{
+    display: flex;
+    gap: 20px;
+    margin: 10px 0;
+    padding-left: var(--padding-article-left);
+}
+.article_social_fz{
+    font-size: 20px;
+}

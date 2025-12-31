@@ -8,7 +8,7 @@ function HomePage() {
         <div className="whole_page_flex">
             <HeaderComponent />
             <main className="main homepage_main">
-                <section className="last_articles section">
+                <section className="last_articles">
                     <h2 className="last_articles_title">
                         Últimos artículos
                     </h2>

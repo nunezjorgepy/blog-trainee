@@ -2,6 +2,7 @@ import './ArticlePage.css'
 import { Link } from "react-router"
 import HeaderComponent from "../../Components/Header/HEaderComponent"
 import Article from '../../Components/Article/Article'
+import ShareSocial from '../../Components/ShareSocial/ShareSocial'
 
 /* 
 TODO:
@@ -19,7 +20,7 @@ function ArticlePage() {
                 <Article />
 
                 {/* Compartir en redes */}
-
+                <ShareSocial />
 
                 {/* Comentarios / Respuestas */}
             </main>
