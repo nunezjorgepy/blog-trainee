@@ -1,0 +1,45 @@
+
+
+.article_container{
+    width: min(var(--max-width), 100%);
+    margin: auto;
+    padding: 0 3%;
+}
+.article_title{
+    color: var(--btn-primary-bg-color);
+    margin: 30px 0 15px;
+    font-size: calc(3dvw + 15px);
+}
+.article_info{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    width: 90%;
+    font-size: 14px;
+    padding: 0 10px;
+    background-color: var(--btn-primary-bg-color);
+}
+.article_created_by{
+    font-weight: 600;
+}
+.article_text{
+    width: 90%;
+}
+.article_paragraph{
+    margin: 15px 0;
+    text-indent: 3%;
+}
+.article_tags{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 12px;
+    margin-top: 80px;
+}
+.tags_icon{
+    color: var(--btn-primary-bg-color);
+    font-size: 16px;
+}
+.tag{
+    font-size: 13px;
+}

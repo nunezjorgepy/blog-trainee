@@ -3,6 +3,7 @@ import './HeaderComponent.css'
 import SignUpForm from '../SignUpForm/SignUpForm'
 import LogInForm from '../LogInForm/LogInForm'
 import { UserContext } from '../../Context/userContext'
+import { Link } from 'react-router'
 
 function HeaderComponent() {
     // Esta variable puede usarse en el context del usuario, que probablemente sea el más alto de todos
@@ -21,9 +22,9 @@ function HeaderComponent() {
             <div className="h_width">
                 <div className="h_flex">
                     {/* Logo */}
-                    <div className="h_logo">
+                    <Link to={'/'} className="h_logo">
                         B
-                    </div>
+                    </Link>
 
                     {/* Search Bar */}
                     <div className="h_search_bar">
