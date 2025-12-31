@@ -3,6 +3,6 @@
     flex-direction: column;
 }
 .comment_group{
-
-    margin: 15px;
+    padding: var(--padding-0-3p-10px);
+    margin: 15px 0;
 }
