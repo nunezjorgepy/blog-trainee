@@ -1,6 +1,11 @@
 import { Link } from 'react-router'
 import './Comment.css'
 
+/* 
+TODO:
+    - Cambiar los links (Link) para que me lleve a la página correcta.
+*/
+
 function Comment(props) {
     const { isAnswer } = props
     return (

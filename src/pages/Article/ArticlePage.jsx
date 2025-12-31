@@ -1,14 +1,10 @@
 import './ArticlePage.css'
-import { Link } from "react-router"
 import HeaderComponent from "../../Components/Header/HEaderComponent"
 import Article from '../../Components/Article/Article'
 import ShareSocial from '../../Components/ShareSocial/ShareSocial'
-import Comment from '../../Components/Comment/Comment'
+import CommentSection from '../../Components/CommentSection/CommentSection'
 
-/* 
-TODO:
-    - Cambiar los links (Link) para que me lleve a la página correcta.
-*/
+
 
 
 function ArticlePage() {
@@ -30,12 +26,7 @@ function ArticlePage() {
                     </h3>
                     <div className="comment_width">
                         {/* Grupo de comentarios y respuestas */}
-                        <div className="comment_group">
-                            {/* Comentario */}
-                            <Comment />
-                            {/* Respuesta */}
-                            <Comment isAnswer />
-                        </div>
+                        <CommentSection />
                     </div>
                 </section>
             </main>
