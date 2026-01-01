@@ -22,7 +22,7 @@ const ArticleContextProvider = (props) => {
     async function postNewAtricle(data) {
         /* Envía la información a la base de datos */
         try {
-            const response = await axios.post(`https://localhost:3000/api/articles`, data)
+            const response = await axios.post(`http://localhost:3000/api/articles`, data)
             console.log(response.data)
             return response.data
         } catch (error) {
