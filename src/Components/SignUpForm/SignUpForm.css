@@ -75,6 +75,12 @@ TODO:
     border-radius: var(--border-radius-btns);
     color: var(--btn-primary-bg-color);
 }
+.input_with_icon i{
+    color: var(--btn-primary-bg-color);
+}
+.input_with_icon:focus{
+    outline-color: var(--btn-primary-bg-color);
+}
 .form_input{
     flex: 1;
     border: none;

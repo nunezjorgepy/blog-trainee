@@ -23,9 +23,12 @@ Además, en el index debería hacer un css general para todos los h1, h2, h3... 
     margin: auto;
     padding: 15px 0;
 }
+.create_div_margin_bottom{
+    margin-bottom: 15px;
+}
 .create_width{
     width: min(var(--form-min-width-px), var(--form-min-width-dvw));
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .create_paragraphs{
     /* Específico del textarea */

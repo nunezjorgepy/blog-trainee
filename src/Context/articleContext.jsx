@@ -6,6 +6,17 @@ const ArticleContextProvider = (props) => {
     const [titulo, setTitulo] = useState('')
     const [paragraphs, setParagraphs] = useState([])
     const [tags, setTags] = useState([])
+
+    function verifyTitle(info) {
+        const verifying = info.trim()
+        if (!verifying) return false
+        return true
+    }
+
+    function verifyArray(info) {
+        if (info.length === 0) return false
+        return true
+    }
     
 
     const providerValues = {
@@ -14,7 +25,9 @@ const ArticleContextProvider = (props) => {
         paragraphs,
         setParagraphs,
         tags,
-        setTags
+        setTags,
+        verifyTitle,
+        verifyArray,
     }
 
     return (

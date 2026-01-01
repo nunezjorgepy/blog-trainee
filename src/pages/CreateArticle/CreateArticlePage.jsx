@@ -1,6 +1,6 @@
 import './CreateArticlePage.css'
 import HeaderComponent from "../../Components/Header/HEaderComponent"
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { ArticleContext } from '../../Context/articleContext'
 
 
@@ -11,15 +11,47 @@ function CreateArticlePage() {
         paragraphs,
         setParagraphs,
         tags,
-        setTags
+        setTags,
+        verifyTitle,
+        verifyArray,
     } = useContext(ArticleContext)
+    /* Warnings */
+    const [titleWarning, setTitleWarning] = useState(false)
+    const [articleWarning, setArticleWarning] = useState(false)
+    const [tagWarning, setTagWarning] = useState(false)
 
     function handleFormSubmit(e) {
         e.preventDefault()
 
-        console.log(titulo)
-        console.log(paragraphs)
-        console.log(tags)
+        // Verificar que los campos sean correctos
+        toggleWarningDisplay()
+        if (!verifyTitle(titulo) || !verifyArray(paragraphs) || !verifyArray(tags)) {
+            console.log('Alguno de los campos es inválido')
+            return
+        }
+
+        // Enviar la información
+
+        console.log('Esto no debería aparecer si hay algún error!')
+    }
+
+    function toggleWarningDisplay() {
+        /* Verifica si alguno de los campos es incorrecto */
+        if (!verifyTitle(titulo)) {
+            setTitleWarning(true)
+        } else {
+            setTitleWarning(false)
+        }
+        if (!verifyArray(paragraphs)) {
+            setArticleWarning(true)
+        } else {
+            setArticleWarning(false)
+        }
+        if (!verifyArray(tags)) {
+            setTagWarning(true)
+        } else {
+            setTagWarning(false)
+        }
     }
 
     return (
@@ -34,7 +66,7 @@ function CreateArticlePage() {
                         <div className="create_article_container">
                             <form onSubmit={(e) => handleFormSubmit(e)} className="create_article_form">
                                 {/* Título */}
-                                <div className="create_article_titulo form_group">
+                                <div className="create_article_titulo create_div_margin_bottom">
                                     <label htmlFor="create_title" className="create_article_title_label required">
                                         Título
                                     </label>
@@ -45,8 +77,9 @@ function CreateArticlePage() {
                                         placeholder='Escribí el título'
                                         value={titulo}
                                         onChange={(e) => {setTitulo(e.target.value)}}/>
+                                    {titleWarning && <div className="form_warning">Título inválido</div>}
                                 </div>
-                                <div className="create_article_textarea_container">
+                                <div className="create_article_textarea_container create_div_margin_bottom">
                                     <label htmlFor="create_paragraphs" className="create_article_textarea required">
                                         Artículo
                                     </label>
@@ -58,8 +91,9 @@ function CreateArticlePage() {
                                         value={paragraphs}
                                         onChange={(e) => {setParagraphs(e.target.value)}}
                                     />
+                                    {articleWarning && <div className="form_warning">Artículo inválido</div>}
                                 </div>
-                                <div className="create_article_tags">
+                                <div className="create_article_tags create_div_margin_bottom">
                                     <label htmlFor="create_tags" className="create_article_tags_container required">
                                         Tags
                                     </label>
@@ -71,10 +105,11 @@ function CreateArticlePage() {
                                         value={tags}
                                         onChange={(e) => {setTags(e.target.value)}}
                                     />
+                                    {tagWarning && <div className="form_warning">Tags inválidos</div>}
                                 </div>
 
                                 <div className="create_article_button_container">
-                                    <button className="create_article_send_data btn-primary">
+                                    <button type='submit' className="create_article_send_data btn-primary">
                                         Crear
                                     </button>
                                 </div>
