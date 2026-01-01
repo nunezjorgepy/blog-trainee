@@ -81,6 +81,9 @@ Opciones de cuenta
 .btn_account_icon{
     display: none;
 }
+.header_btn_text_color{
+    color: inherit
+}
 
 
 

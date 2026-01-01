@@ -1,8 +1,14 @@
+import HeaderComponent from "../../Components/Header/HEaderComponent"
 
 
 function CreateArticlePage() {
     return (
-        <div>CreateArticlePage</div>
+        <>
+            <HeaderComponent />
+            <main>
+                Crear Artículo
+            </main>
+        </>
     )
 }
 

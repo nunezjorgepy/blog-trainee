@@ -56,6 +56,15 @@ function HeaderComponent() {
                                     <button className="btn-primary btn_account_icon">
                                         <i className="bi bi-person-gear"></i>
                                     </button>
+                                    {/* Nuevo artículo */}
+                                    <button className="btn-primary h_account_text">
+                                        <Link to={'/createArticle'} className='header_btn_text_color'>
+                                            Nuevo
+                                        </Link>
+                                    </button>
+                                    <button className="btn-primary btn_account_icon">
+                                        <i className="bi bi-plus-lg"></i>
+                                    </button>
                                 </div>
                             </> :
                             <>
