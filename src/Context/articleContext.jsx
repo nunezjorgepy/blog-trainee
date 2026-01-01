@@ -19,17 +19,6 @@ const ArticleContextProvider = (props) => {
         return true
     }
 
-    async function postNewAtricle(data) {
-        /* Envía la información a la base de datos */
-        try {
-            const response = await axios.post(`http://localhost:3000/api/articles`, data)
-            console.log(response.data)
-            return response.data
-        } catch (error) {
-            console.log(error.message)
-            throw error
-        }
-    }
     
 
     const providerValues = {
@@ -41,7 +30,6 @@ const ArticleContextProvider = (props) => {
         setTags,
         verifyTitle,
         verifyArray,
-        postNewAtricle
     }
 
     return (

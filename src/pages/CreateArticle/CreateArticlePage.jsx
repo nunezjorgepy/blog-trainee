@@ -2,6 +2,7 @@ import './CreateArticlePage.css'
 import HeaderComponent from "../../Components/Header/HEaderComponent"
 import { useContext, useState } from 'react'
 import { ArticleContext } from '../../Context/articleContext'
+import { postNewAtricle } from '../../services/articleService'
 
 
 function CreateArticlePage() {
@@ -14,7 +15,6 @@ function CreateArticlePage() {
         setTags,
         verifyTitle,
         verifyArray,
-        postNewAtricle
     } = useContext(ArticleContext)
     /* Warnings */
     const [titleWarning, setTitleWarning] = useState(false)
@@ -40,9 +40,7 @@ function CreateArticlePage() {
             paragraphs: textToSent,
             tags: tagsToSend,
         }
-        console.log(data)
-        await postNewAtricle(data)
-        
+        const newArticle = await postNewAtricle(data)
 
     }
 
