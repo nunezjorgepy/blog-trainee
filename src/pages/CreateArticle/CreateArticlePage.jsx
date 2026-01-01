@@ -14,13 +14,14 @@ function CreateArticlePage() {
         setTags,
         verifyTitle,
         verifyArray,
+        postNewAtricle
     } = useContext(ArticleContext)
     /* Warnings */
     const [titleWarning, setTitleWarning] = useState(false)
     const [articleWarning, setArticleWarning] = useState(false)
     const [tagWarning, setTagWarning] = useState(false)
 
-    function handleFormSubmit(e) {
+    async function handleFormSubmit(e) {
         e.preventDefault()
 
         // Verificar que los campos sean correctos
@@ -30,9 +31,19 @@ function CreateArticlePage() {
             return
         }
 
-        // Enviar la información
+        const textToSent = paragraphs.split('\n')
+        const tagsToSend = tags.split(';')
 
-        console.log('Esto no debería aparecer si hay algún error!')
+        // Enviar la información
+        const data = {
+            title: titulo,
+            paragraphs: textToSent,
+            tags: tagsToSend,
+        }
+        console.log(data)
+        await postNewAtricle(data)
+        
+
     }
 
     function toggleWarningDisplay() {
