@@ -23,6 +23,7 @@ header{
 .h_logo {
     font-size: 32px;
     text-shadow: 1px 1px 2px gray;
+    user-select: none;
 }
 
 /* 

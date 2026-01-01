@@ -1,0 +1,42 @@
+/*
+Esta página tiene diseños muy parecidos a los de SignUpForm y los de LogInForm
+Para próximos proyectos, hacer un archivo para todos los form, incluyendo sus contenedores.
+Además, en el index debería hacer un css general para todos los h1, h2, h3... y modificar el que necesite especificamenteen su propio css
+*/
+
+.create_form_flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.create_article_title{
+    text-align: center;
+    font-size: clamp(20px, calc(5dvw + 5px), 32px);
+}
+.create_article_container{
+    width: min(var(--max-width), 100%);
+}
+.create_article_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 15px 0;
+}
+.create_width{
+    width: min(var(--form-min-width-px), var(--form-min-width-dvw));
+    margin-bottom: 30px;
+}
+.create_paragraphs{
+    /* Específico del textarea */
+    resize: none;
+    height: 300px;
+}
+
+.create_article_button_container{
+    width: min(var(--form-min-width-px), var(--form-min-width-dvw));
+}
+.create_article_send_data{
+    border-radius: var(--border-radius-btns);
+    width: 100%;
+}
