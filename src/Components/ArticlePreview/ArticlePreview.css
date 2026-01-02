@@ -13,11 +13,16 @@
     background-color: var(--btn-primary-bg-color);
     padding: var(--prev-left-padding) var(--prev-side-padding);
     color: var(--neutral--100);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .preview_paragraphs{
     font-size: 12px;
     border-bottom: 2px solid var(--btn-primary-bg-color);
     padding: var(--prev-left-padding) var(--prev-side-padding);
+    height: 7rem;
+    overflow: hidden;
 }
 .prev_article_info{
     display: flex;

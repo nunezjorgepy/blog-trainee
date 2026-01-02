@@ -1,18 +1,29 @@
 import { Link } from "react-router"
 import './ArticlePreview.css'
+import { useState } from "react"
 /* TODO: cambiar el link para que me lleve a la página del artículo */
 
-function ArticlePreview() {
+function ArticlePreview(props) {
+    const { article } = props
+    const article_date = article.article_at.slice(0, 10).split('-').reverse().join('/')
+    const article_paragraphs = article.paragraphs
+
+    const HTMLParagraphs = article_paragraphs.map(
+        (paragraphs, index) => {
+            return(
+                <p key={index} className="preview_p">{paragraphs}</p>
+            )
+        }
+    )
+
     return (
         <div className="preview_conainer">
-            <Link to={'/article'}>
+            <Link to={'/article/' + article._id}>
                 <h3 className="preview_title">
-                    Título del artículo
+                    {article.title}
                 </h3>
                 <div className="preview_paragraphs">
-                    <p className="preview_p">Estos son los primeros párrafos del artículo.</p>
-                    <p className="preview_p">Solamente se mostrarán unas pocas palabras.</p>
-                    <p className="preview_p">Como para empezar a ver de qué se trata.</p>
+                    {HTMLParagraphs}
                 </div>
             </Link>
             <div className="prev_article_info">
@@ -20,7 +31,7 @@ function ArticlePreview() {
                     jorgenunez
                 </Link>
                 <div className="prev_article_date">
-                    28/11/2025
+                    {article_date.slice(0, 10)}
                 </div>
             </div>
         </div>

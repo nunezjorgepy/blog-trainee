@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/user/:username' element={<UserPage />}/>
-            <Route path='/article' element={<ArticlePage />} />
+            <Route path='/article/:article_id' element={<ArticlePage />} />
             <Route path='/createArticle' element={<CreateArticlePage />} />
             <Route path='/config' element={<ConfigPage />} />
           </Routes>
