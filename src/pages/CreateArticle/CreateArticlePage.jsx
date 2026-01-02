@@ -27,7 +27,6 @@ function CreateArticlePage() {
         // Verificar que los campos sean correctos
         toggleWarningDisplay()
         if (!verifyTitle(titulo) || !verifyArray(paragraphs) || !verifyArray(tags)) {
-            console.log('Alguno de los campos es inválido')
             return
         }
 

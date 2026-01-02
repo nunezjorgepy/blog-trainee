@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import './SignUpForm.css'
 import { getUserByEmail, getUserByPhone, getUserByUsername, postNewUser } from '../../services/userService.js'
 import { UserContext } from '../../Context/userContext.jsx'
@@ -69,12 +69,18 @@ function SignUpForm(props) {
 
         // Si la data es correcta, ingresa al nuevo usuario en la base de datos
         await postNewUser(data)
+        setShowSignUpForm(false)
+        setDataToDefult()
     }
 
     function closeForm(e) {
         e.preventDefault()
         setShowSignUpForm(false)
 
+        setDataToDefult()
+    }
+
+    function setDataToDefult(){
         setName('')
         setLastName('')
         setUsername('')
