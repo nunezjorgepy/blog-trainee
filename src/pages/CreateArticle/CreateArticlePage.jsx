@@ -3,6 +3,7 @@ import HeaderComponent from "../../Components/Header/HEaderComponent"
 import { useContext, useState } from 'react'
 import { ArticleContext } from '../../Context/articleContext'
 import { postNewAtricle } from '../../services/articleService'
+import { UserContext } from '../../Context/userContext'
 
 
 function CreateArticlePage() {
@@ -16,6 +17,19 @@ function CreateArticlePage() {
         verifyTitle,
         verifyArray,
     } = useContext(ArticleContext)
+    const { isLoggedIn } = useContext(UserContext)
+
+    if (!isLoggedIn) {
+        return(
+            <>
+                <HeaderComponent />
+                <div className="creat_article_main">
+                    {/* TODO: mejorar el CSS */}
+                    No tenes permisos para crear artículos
+                </div>
+            </>
+        )
+    }
     /* Warnings */
     const [titleWarning, setTitleWarning] = useState(false)
     const [articleWarning, setArticleWarning] = useState(false)
