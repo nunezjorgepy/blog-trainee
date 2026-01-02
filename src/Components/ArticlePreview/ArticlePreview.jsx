@@ -5,6 +5,7 @@ import { useState } from "react"
 
 function ArticlePreview(props) {
     const { article } = props
+    console.log(article.author)
     const article_date = article.article_at.slice(0, 10).split('-').reverse().join('/')
     const article_paragraphs = article.paragraphs
 
@@ -27,8 +28,8 @@ function ArticlePreview(props) {
                 </div>
             </Link>
             <div className="prev_article_info">
-                <Link to={'/user/jorgenunez'} className="prev_username">
-                    jorgenunez
+                <Link to={'/user/' + article.author} className="prev_username">
+                    {article.author}
                 </Link>
                 <div className="prev_article_date">
                     {article_date.slice(0, 10)}
