@@ -1,5 +1,5 @@
 import './CreateArticlePage.css'
-import HeaderComponent from "../../Components/Header/HEaderComponent"
+import HeaderComponent from "../../Components/Header/HeaderComponent"
 import { useContext, useState } from 'react'
 import { ArticleContext } from '../../Context/articleContext'
 import { postNewAtricle } from '../../services/articleService'
@@ -17,7 +17,7 @@ function CreateArticlePage() {
         verifyTitle,
         verifyArray,
     } = useContext(ArticleContext)
-    const { isLoggedIn } = useContext(UserContext)
+    const { isLoggedIn, username } = useContext(UserContext)
 
     if (!isLoggedIn) {
         return(
@@ -52,6 +52,7 @@ function CreateArticlePage() {
             title: titulo,
             paragraphs: textToSent,
             tags: tagsToSend,
+            author: username
         }
         const newArticle = await postNewAtricle(data)
 
