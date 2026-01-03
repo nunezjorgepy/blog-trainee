@@ -1,11 +1,9 @@
 import { Link } from "react-router"
 import './ArticlePreview.css'
-import { useState } from "react"
 /* TODO: cambiar el link para que me lleve a la página del artículo */
 
 function ArticlePreview(props) {
     const { article } = props
-    console.log(article.author)
     const article_date = article.article_at.slice(0, 10).split('-').reverse().join('/')
     const article_paragraphs = article.paragraphs
 

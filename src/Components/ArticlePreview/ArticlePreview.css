@@ -16,6 +16,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-size: 14px;
 }
 .preview_paragraphs{
     font-size: 12px;

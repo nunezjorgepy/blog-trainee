@@ -20,6 +20,18 @@ const UserContextProvider = (props) => {
     // Este estado verifica si el usuario ingreso correctamente sus credenciales. En un app real, esto tiene que ser mucho más seguro, pero la parte de seguridad todavía no la vi bien, asique por ahora lo hago así.
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+    async function getOneUser() {
+        /* 
+        Busco al usuario según el usuario ingresado
+        */
+        const response = await getUserByUsername(username)
+        // Si no encuentra al usuario
+        if (!response) {
+            return false
+        }
+        return response.data[0]
+    }
+
     async function checkPassword() {
         /* 
         Verifica si el password ingresado coincide con el de la base de datos
@@ -57,6 +69,7 @@ const UserContextProvider = (props) => {
         phoneExists,
         setPhoneExists,
         checkPassword,
+        getOneUser,
         isLoggedIn,
         setIsLoggedIn
     }

@@ -6,11 +6,16 @@ function LogInForm(props) {
     const { setShowLogInForm } = props
     const [areWrongCredentials, setAreWrongCredentials] = useState(false)
     const { 
-        username, 
-        setUsername, 
-        password, 
-        setPassword, 
-        checkPassword, 
+        setName,
+        setLastName,
+        username,
+        setUsername,
+        password,
+        setPassword,
+        setEmail,
+        setPhone,
+        setCountry,
+        getOneUser,
         setIsLoggedIn
     } = useContext(UserContext)
     const navigate = useNavigate()
@@ -19,17 +24,28 @@ function LogInForm(props) {
         e.preventDefault()
         // Por defecto, no muestro el mensaje de advertencia.
         setAreWrongCredentials(false)
-        const passVerify = await checkPassword()
 
-        if (!passVerify) {
+        const user = await getOneUser()
+        console.log(user)
+        if (!user || user.password !== password) {
+            // Si no encuentra al usuario o la contraseña no coincide
             setAreWrongCredentials(true)
             return
-        }
+        } else {
+            // Si la contraseña coincide
+            // Setea los datos del usuario, menos la contraseña que la reinicia
+            setName(user.name)
+            setLastName(user.lastname)
+            setUsername(user.username)
+            setEmail(user.email)
+            setPhone(user.phone)
+            setCountry(user.country)
+            setPassword('')
 
-        if (passVerify) {
+            // Vuelve a la página de inicio, setea el loggedIn a true y cierra el recuadro de Ingreso
             navigate('/')
             setIsLoggedIn(true)
-            cancelSumbit(e)
+            setShowLogInForm(false)
         }
     }
 
