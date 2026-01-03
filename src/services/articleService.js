@@ -25,6 +25,17 @@ export async function getNArticles(limit) {
     }
 }
 
+export async function getOneArticle(id) {
+    try {
+        const response = await axios.get(`${URL}articleID/${id}`)
+        return response.data
+    } catch (error) {
+        console.log(error)
+        return false
+    }
+    
+}
+
 export async function postNewAtricle(data) {
     /* Envía la información a la base de datos */
     try {

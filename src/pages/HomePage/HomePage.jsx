@@ -1,5 +1,5 @@
 import './HomePage.css'
-import HeaderComponent from "../../Components/Header/HEaderComponent"
+import HeaderComponent from "../../Components/Header/HeaderComponent"
 import ArticlePreview from "../../Components/ArticlePreview/ArticlePreview"
 import { getNArticles } from '../../services/articleService'
 import { useEffect, useState } from 'react'
@@ -41,13 +41,7 @@ function HomePage() {
                         Últimos artículos
                     </h2>
                     <div className="articles_container">
-                        {HTMLLastArticles}{/* 
-                        <ArticlePreview />
-                        <ArticlePreview />
-                        <ArticlePreview />
-                        <ArticlePreview />
-                        <ArticlePreview />
-                        <ArticlePreview /> */}
+                        {HTMLLastArticles}
                     </div>
                 </section>
 
@@ -57,13 +51,6 @@ function HomePage() {
                     </h2>
                     <div className="articles_container">
                         {HTMLLastArticles}
-                        {/* 
-                        <ArticlePreview />
-                        <ArticlePreview />
-                        <ArticlePreview />
-                        <ArticlePreview />
-                        <ArticlePreview />
-                        <ArticlePreview /> */}
                     </div>
                 </section>
 

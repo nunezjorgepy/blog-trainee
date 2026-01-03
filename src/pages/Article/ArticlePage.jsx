@@ -1,5 +1,5 @@
 import './ArticlePage.css'
-import HeaderComponent from "../../Components/Header/HEaderComponent"
+import HeaderComponent from "../../Components/Header/HeaderComponent"
 import Article from '../../Components/Article/Article'
 import ShareSocial from '../../Components/ShareSocial/ShareSocial'
 import CommentSection from '../../Components/CommentSection/CommentSection'
