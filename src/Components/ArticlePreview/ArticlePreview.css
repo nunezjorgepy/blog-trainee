@@ -6,8 +6,9 @@
 .preview_conainer{
     border: 2px solid var(--btn-primary-bg-color);
     border-radius: 10px;
+    margin: auto;
     overflow: hidden;
-    width: 220px;
+    width: 90%;
 }
 .preview_title{
     background-color: var(--btn-primary-bg-color);
@@ -16,7 +17,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-size: 14px;
+    font-size: 17px;
 }
 .preview_paragraphs{
     font-size: 12px;
@@ -37,10 +38,7 @@
 
 @media screen and (max-width: 420px) {
     .preview_title{
-        font-size: 17px;
-    }
-    .preview_paragraphs{
-        display: none;
+        font-size: 14px;
     }
     .prev_article_info{
         font-size: .6rem;

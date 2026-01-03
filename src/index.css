@@ -75,9 +75,8 @@ i{
   padding-bottom: 30px;
 }
 .articles_container{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 .bottom_border_small:after{
