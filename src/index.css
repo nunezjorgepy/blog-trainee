@@ -67,7 +67,7 @@ i{
   flex-direction: column;
 }
 .homepage_main{
-  display: grid;
+  display: flex;
   margin: auto;
   width: min(var(--max-width), 100%);
 }
