@@ -98,7 +98,7 @@ function SignUpForm(props) {
                     <div className="form_header">
                         <h2 className="form_header_title">
                             <i className="bi bi-person-plus"></i>
-                            <span>Crear Cuenta</span>
+                            <span className='form_header_span'>Crear Cuenta</span>
                         </h2>
                         <span className="form_header_span">Ingresa a nuestra comunidad</span>
                     </div>

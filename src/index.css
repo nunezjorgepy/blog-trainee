@@ -4,11 +4,12 @@
 :root{
   /* Colores */
   --neutral--000: #fff;
-  --neutral--100: #fdfdfd;
+  --neutral--100: #EEE;
 
   --neutral--300: #aaa;
   --neutral--300-opacity: #aaaaaa49;
 
+  --neutral--800: #222;
   --neutral--900: #111;
 
 
@@ -37,6 +38,9 @@
   box-sizing: border-box;
   font-family: "Science Gothic", sans-serif;
   color: var(--neutral--900);
+}
+body{
+  background-color: var(--neutral--300-opacity);
 }
 main{
   display: flex;

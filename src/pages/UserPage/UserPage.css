@@ -1,0 +1,10 @@
+
+
+.section_max_width{
+    width: min(var(--max-width), 95%);
+    margin: 20px auto 0;
+}
+.user_info_flex{
+    display: flex;
+    justify-content: space-between;
+}

@@ -9,6 +9,7 @@
     margin: auto;
     overflow: hidden;
     width: 90%;
+    background-color: var(--neutral--100);
 }
 .preview_title{
     background-color: var(--btn-primary-bg-color);

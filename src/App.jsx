@@ -16,7 +16,7 @@ function App() {
         <ArticleContextProvider>
           <Routes>
             <Route path='/' element={<HomePage />} />
-            <Route path='/user/:username' element={<UserPage />}/>
+            <Route path='/user/:user' element={<UserPage />}/>
             <Route path='/article/:article_id' element={<ArticlePage />} />
             <Route path='/createArticle' element={<CreateArticlePage />} />
             <Route path='/config' element={<ConfigPage />} />
