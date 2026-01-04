@@ -15,6 +15,8 @@ function LogInForm(props) {
         setEmail,
         setPhone,
         setCountry,
+        setUserId,
+        setUserArticles,
         getOneUser,
         setIsLoggedIn
     } = useContext(UserContext)
@@ -40,6 +42,8 @@ function LogInForm(props) {
             setEmail(user.email)
             setPhone(user.phone)
             setCountry(user.country)
+            setUserId(user._id)
+            setUserArticles(user.articlesPosted)
             setPassword('')
 
             // Vuelve a la página de inicio, setea el loggedIn a true y cierra el recuadro de Ingreso
