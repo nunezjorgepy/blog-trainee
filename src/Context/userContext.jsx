@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getUserByUsername } from "../services/userService";
+import { getUserByUsername, patchUser } from "../services/userService";
 
 export const UserContext = createContext()
 
@@ -12,6 +12,8 @@ const UserContextProvider = (props) => {
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [country, setCountry] = useState('')
+    const [userId, setUserId] = useState('')
+    const [userArticles, setUserArticles] = useState([])
 
     /* Verificaciones */
     const [usernameExists, setUsernameExists] = useState(false)
@@ -46,32 +48,29 @@ const UserContextProvider = (props) => {
         return true
     }
 
+    async function patchUserArticle(user_id, data) {
+        const response = await patchUser(user_id, data)
+    }
+
 
     const providerValues = {
-        name,
-        setName,
-        lastName,
-        setLastName,
-        username,
-        setUsername,
-        password,
-        setPassword,
-        email,
-        setEmail,
-        phone,
-        setPhone,
-        country,
-        setCountry,
-        usernameExists,
-        setUsernameExists,
-        emailExists,
-        setEmailExists,
-        phoneExists,
-        setPhoneExists,
+        name, setName,
+        lastName, setLastName,
+        username, setUsername,
+        password, setPassword,
+        email, setEmail,
+        phone, setPhone,
+        country, setCountry,
+        userId, setUserId,
+        userArticles, setUserArticles,
+        usernameExists, setUsernameExists,
+        emailExists, setEmailExists,
+        phoneExists, setPhoneExists,
         checkPassword,
         getOneUser,
         isLoggedIn,
-        setIsLoggedIn
+        setIsLoggedIn,
+        patchUserArticle
     }
     
     return (

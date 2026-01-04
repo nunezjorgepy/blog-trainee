@@ -17,7 +17,11 @@ function CreateArticlePage() {
         verifyTitle,
         verifyArray,
     } = useContext(ArticleContext)
-    const { isLoggedIn, username } = useContext(UserContext)
+    const { isLoggedIn, username, patchUserArticle, userId, userArticles, setUserArticles } = useContext(UserContext)
+    
+    const [titleWarning, setTitleWarning] = useState(false)
+    const [articleWarning, setArticleWarning] = useState(false)
+    const [tagWarning, setTagWarning] = useState(false)
 
     if (!isLoggedIn) {
         return(
@@ -31,9 +35,6 @@ function CreateArticlePage() {
         )
     }
     /* Warnings */
-    const [titleWarning, setTitleWarning] = useState(false)
-    const [articleWarning, setArticleWarning] = useState(false)
-    const [tagWarning, setTagWarning] = useState(false)
 
     async function handleFormSubmit(e) {
         e.preventDefault()
@@ -56,7 +57,20 @@ function CreateArticlePage() {
         }
         const newArticle = await postNewAtricle(data)
 
+        // Ahora tengo que agregar el artículo en la base de datos del usuario que lo creó.
+        // Creo la variable que contiene los artículos anteriores más el nuevo
+        const newUserArticles = [newArticle._id, ...userArticles]
+        // Modifico el estado de los artículos creados por el usuario
+        setUserArticles(newUserArticles)
+        // Envío la información a la base de datos
+        const patchingUser = await patchUserArticle(userId, {
+            articlesPosted: newUserArticles
+        })
+
     }
+    
+        /* console.log(userId)
+        console.log(userArticles.push('fa6s854fa6s51faw6e51')) */
 
     function toggleWarningDisplay() {
         /* Verifica si alguno de los campos es incorrecto */

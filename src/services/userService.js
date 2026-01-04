@@ -67,3 +67,12 @@ export async function postNewUser(data) {
     }
 }
 
+export async function patchUser(user_id, data) {
+    try {
+        const response = await axios.patch(`${URL}users/${user_id}`, data)
+        return response.data
+    } catch (error) {
+        console.log(error)
+        throw error
+    }
+}
