@@ -25,8 +25,8 @@ function LogInForm(props) {
         // Por defecto, no muestro el mensaje de advertencia.
         setAreWrongCredentials(false)
 
-        const user = await getOneUser()
-        console.log(user)
+        const user = await getOneUser(username)
+        
         if (!user || user.password !== password) {
             // Si no encuentra al usuario o la contraseña no coincide
             setAreWrongCredentials(true)
