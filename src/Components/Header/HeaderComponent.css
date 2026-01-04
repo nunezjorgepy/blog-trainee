@@ -3,6 +3,7 @@ header{
     display: flex;
     justify-content: center;
     box-shadow: 0 0 5px gray;
+    background-color: var(--neutral--000);
 }
 
 .h_width{

@@ -18,7 +18,7 @@ TODO:
 }
 
 .form_container{
-    background-color: var(--neutral--100);
+    background-color: var(--neutral--000);
     border-radius: 10px;
     overflow: hidden;
     width: min(600px, 95%);
@@ -42,6 +42,7 @@ TODO:
 }
 .form_header_span{
     font-size: 14px;
+    color: var(--neutral--100);
 }
 
 .form_body{
